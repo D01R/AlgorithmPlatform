@@ -75,3 +75,13 @@ ShareCode.belongsTo(Code);
 
 Code.hasMany(CodeCompil);
 CodeCompil.belongsTo(Code);
+
+
+module.exports = {
+    User,
+    University,
+    Group,
+    Code,
+    CodeCompil,
+    ShareCode,
+}
