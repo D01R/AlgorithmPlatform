@@ -18,9 +18,8 @@ class UserController{
 
     async registration(req, res, next){
         const {login, mail, password, name, surname, role, universityId} = req.body
-        console.log(login);
-        //if (!login || !password || !mail || !name || !surname || !universityId){
-        if (!login || !password || !mail || !name || !surname){
+        if (!login || !password || !mail || !name || !surname || !universityId){
+        //if (!login || !password || !mail || !name || !surname){
             return next(ApiError.badRequest("Проверьте все поля"));
         }
         const candidate = await User.findOne({
@@ -41,9 +40,8 @@ class UserController{
 
 
     async login(req, res, next){
-        const {loginOrMail, password} = req.body
-
-        const findProp = loginOrMail.includes('@')? {mail: loginOrMail}: {login: loginOrMail};
+        const {login, password} = req.body;
+        const findProp = login.includes('@')? {mail: login}: {login: login};
         const user = await User.findOne({
             where: findProp
         })
@@ -54,8 +52,8 @@ class UserController{
         if (!comparePassword){
             return next(ApiError.internal("Пользователь не найден"))
         }
-
-        const token = generateJwt(user.id, user.login, user.role)
+        
+        const token = generateJwt(user.id, user.login, user.role);
         return res.json({token})
     }
 
