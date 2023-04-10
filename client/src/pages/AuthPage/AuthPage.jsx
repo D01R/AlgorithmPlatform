@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card, Container, Dropdown, Form, Row } from 'react-bootstrap';
+import { Button, Card, Container, Form, Row } from 'react-bootstrap';
 import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../../main';
 import { observer } from 'mobx-react-lite';
 import { login, registration } from '../../services/userAPI';
 import { roleEnum } from '../../utils/roleEnum';
+import FormInputAuth from '../../components/FormInputAuth/FormInputAuth';
+import FormDropdownAuth from '../../components/FormDropdownAuth/FormDropdownauth';
 
 const AuthPage = observer(() => {
     const {user} = useContext(Context);
@@ -51,71 +53,15 @@ const AuthPage = observer(() => {
             <Card style={{width: 600}} className='5-p'>
                 <h2>{isLogin? "Авторизация": "Регистрация"}</h2>
                 <Form>
-                    <Form.Group controlId='formLogin'>
-                        <Form.Label>{isLogin? "Введите login или email": "Введите login"}</Form.Label>
-                        <Form.Control 
-                            name="login"
-                            placeholder="Login..."
-                            value={stateForm.login}
-                            onChange={e => onChange(e)}
-                        />
-                        <Form.Text style={{display: 'none'}}></Form.Text>
-                    </Form.Group>
-                    <Form.Group controlId='formPassword'>
-                        <Form.Label>Введите пароль</Form.Label>
-                        <Form.Control 
-                            type='password'
-                            name="password"
-                            placeholder="Password..."
-                            value={stateForm.password}
-                            onChange={e => onChange(e)}
-                        />
-                        <Form.Text style={{display: 'none'}}></Form.Text>
-                    </Form.Group>
+                    <FormInputAuth id='formLogin' text={isLogin? "Введите login или email": "Введите login"} type='text' name="login" placeholder="Login..." value={stateForm.login} callback={onChange}/>
+                    <FormInputAuth id='formPassword' text='Введите пароль' type='password' name="password" placeholder="Password..." value={stateForm.password} callback={onChange}/>
+                    
                     {!isLogin?
                         <>
-                            <Form.Group controlId='formMail'>
-                                <Form.Label>Введите почту</Form.Label>
-                                <Form.Control 
-                                    name="mail"
-                                    placeholder="Mail..."
-                                    value={stateRegForm.mail}
-                                    onChange={e => onChangeReg(e)}
-                                />
-                                <Form.Text style={{display: 'none'}}></Form.Text>
-                            </Form.Group>
-                            <Form.Group controlId='formRole'>
-                                <Form.Label>Введите роль</Form.Label>
-                                <Dropdown>
-                                    <Dropdown.Toggle>{stateRegForm.role == ''? 'Роль...': roleEnum.filter(i => i.value == stateRegForm.role)[0].displayName}</Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        {roleEnum.map(role =>
-                                            <Dropdown.Item key={role.value} onClick={(e) => onChangeDropDown('role', role.value)}>{role.displayName}</Dropdown.Item>    
-                                        )}
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                                <Form.Text style={{display: 'none'}}></Form.Text>
-                            </Form.Group>
-                            <Form.Group controlId='formName'>
-                                <Form.Label>Введите имя</Form.Label>
-                                <Form.Control 
-                                    name="name"
-                                    placeholder="Name..."
-                                    value={stateRegForm.name}
-                                    onChange={e => onChangeReg(e)}
-                                />
-                                <Form.Text style={{display: 'none'}}></Form.Text>
-                            </Form.Group>
-                            <Form.Group controlId='formSurname'>
-                                <Form.Label>Введите фамилию</Form.Label>
-                                <Form.Control 
-                                    name="surname"
-                                    placeholder="Surname..."
-                                    value={stateRegForm.surname}
-                                    onChange={e => onChangeReg(e)}
-                                />
-                                <Form.Text style={{display: 'none'}}></Form.Text>
-                            </Form.Group>
+                            <FormInputAuth id='formMail' text='Введите почту' type='text' name="mail" placeholder="Mail..." value={stateForm.mail} callback={onChangeReg}/>
+                            <FormDropdownAuth id='formRole' text='Введите роль' value={stateRegForm.role} enums={roleEnum} paramChange='role' callback={onChangeDropDown}/>
+                            <FormInputAuth id='formName' text='Введите имя' type='text' name="name" placeholder="Name..." value={stateForm.name} callback={onChangeReg}/>
+                            <FormInputAuth id='formSurname' text='Введите фамилию' type='text' name="surname" placeholder="Surname..." value={stateForm.surname} callback={onChangeReg}/>
                         </>
                         :
                         <></>
