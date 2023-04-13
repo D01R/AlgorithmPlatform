@@ -1,9 +1,11 @@
 import React from 'react';
+import AlgorithmMain from '../../components/AlgorithmMain/AlgorithmMain';
+import photo from '../../assets/photoPlaceholder.avif';
 
 const MainPage = () => {
     return (
         <>
-            <h1>Main</h1>
+            <AlgorithmMain name='Алгоритм...' id={1} photo={photo}/>
         </>
     )
 }
