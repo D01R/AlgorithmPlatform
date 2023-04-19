@@ -59,7 +59,7 @@ const AuthPage = observer(() => {
                     {!isLogin?
                         <>
                             <FormInputAuth id='formMail' text='Введите почту' type='text' name="mail" placeholder="Mail..." value={stateForm.mail} callback={onChangeReg}/>
-                            <FormDropdownAuth id='formRole' text='Введите роль' value={stateRegForm.role} enums={roleEnum} paramChange='role' callback={onChangeDropDown}/>
+                            <FormDropdownAuth id='formRole' toggleText='Роль...' text='Введите роль' value={stateRegForm.role} enums={roleEnum} paramChange='role' callback={onChangeDropDown}/>
                             <FormInputAuth id='formName' text='Введите имя' type='text' name="name" placeholder="Name..." value={stateForm.name} callback={onChangeReg}/>
                             <FormInputAuth id='formSurname' text='Введите фамилию' type='text' name="surname" placeholder="Surname..." value={stateForm.surname} callback={onChangeReg}/>
                         </>

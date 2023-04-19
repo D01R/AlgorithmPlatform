@@ -1,12 +1,13 @@
 import React from 'react';
-import AlgorithmMain from '../../components/AlgorithmMain/AlgorithmMain';
+import AlgorithmCard from '../../components/AlgorithmCard/AlgorithmCard';
 import photo from '../../assets/photoPlaceholder.avif';
+import { Container } from 'react-bootstrap';
 
 const MainPage = () => {
     return (
-        <>
-            <AlgorithmMain name='Алгоритм...' id={1} photo={photo}/>
-        </>
+        <Container>
+            <AlgorithmCard name='Алгоритм...' id={1} photo={photo}/>
+        </Container>
     )
 }
 

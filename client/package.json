@@ -18,6 +18,7 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
+    "react-vis": "^1.11.12",
     "sass": "^1.62.0"
   },
   "devDependencies": {
