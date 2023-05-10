@@ -8,6 +8,7 @@ import { COMPILER_ROUTE } from "../../utils/consts";
 import BarSort from "../../components/BarSort/BarSort";
 import algorithms from "../../utils/algorithms";
 import NotFound from "../NotFoundPage/NotFoundPage";
+import BinarySearch from "../../components/BinarySearch/BinarySearch";
 
 const ScriptRow = ({item}) => {
     return (
@@ -59,6 +60,16 @@ const AlgorithmPage = observer(() => {
         algorithm.func_algorithm(colorRow, delay_func, dataRef, setData)
     };
     
+    function renderSwitch(paramType) {
+        switch (paramType) {
+            case "barSort":
+                return <BarSort colorType={"category"} colorRange={colorRange} data={data}/>;
+            case "binarySearch":
+                return <BinarySearch data={data}/>
+            default:
+                return <div>Not Found</div>
+        }
+    }
 
     return(
         <Container>
@@ -66,7 +77,7 @@ const AlgorithmPage = observer(() => {
             <Row>
                 <Col md={8}>
                     <Card style={{height: 400}}>
-                        <BarSort colorType={"category"} colorRange={colorRange} data={data}/>
+                        {renderSwitch(algorithm.type)}
                     </Card>
                     <h2>Описание</h2>
                     <p>{algorithm.description}</p>

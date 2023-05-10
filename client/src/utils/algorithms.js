@@ -2,6 +2,7 @@ const algorithms = [
   {
     id: 1,
     name: "Пузырьковая сортировка",
+    type: "barSort",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas excepturi recusandae dolore maxime praesentium exercitationem dolor laudantium, animi molestiae atque odio quod sequi quibusdam repellendus eum iusto veritatis perferendis iure consectetur. Quas?",
     script: [
@@ -70,6 +71,7 @@ const algorithms = [
   {
     id: 2,
     name: "Сортировка расчёской",
+    type: "barSort",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas excepturi recusandae dolore maxime praesentium exercitationem dolor laudantium, animi molestiae atque odio quod sequi quibusdam repellendus eum iusto veritatis perferendis iure consectetur. Quas?",
     script: [
@@ -152,6 +154,7 @@ const algorithms = [
   {
     id: 3,
     name: "Быстрая сортировка",
+    type: "barSort",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas excepturi recusandae dolore maxime praesentium exercitationem dolor laudantium, animi molestiae atque odio quod sequi quibusdam repellendus eum iusto veritatis perferendis iure consectetur. Quas?",
     script: [
@@ -231,6 +234,107 @@ const algorithms = [
         await quickSort(array, 0, array.length-1);
     },
   },
+  {
+    id: 4,
+    name: "Бинарный поиск",
+    type: "binarySearch",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas excepturi recusandae dolore maxime praesentium exercitationem dolor laudantium, animi molestiae atque odio quod sequi quibusdam repellendus eum iusto veritatis perferendis iure consectetur. Quas?",
+    script: [
+        "function binarySearch(arr, key){",
+        "let start = 0;",
+        "let end = arr.length - 1;",
+        "while (start <= end) {",
+        "    let middle = Math.floor((start + end) / 2);",
+        "    if (sortedArray[middle] === key) {",
+        "        return middle;",
+        "    } else if (sortedArray[middle] < key) {",
+        "        start = middle + 1;",
+        "    } else {",
+        "        end = middle - 1;",
+        "    }",
+        "}",
+        "return -1",
+        "}",
+      ],
+    colorRange: ["#191645", "#43c6ac", "#a1e2d5"],
+    data: [
+        { value: 17, color: "basic"},
+        { value: 18, color: "basic"},
+        { value: 21, color: "basic"},
+        { value: 22, color: "basic"},
+        { value: 29, color: "basic"},
+        { value: 42, color: "basic"},
+        { value: 75, color: "basic"},
+        { value: 77, color: "basic"},
+        { value: 90, color: "basic"},
+        { value: 98, color: "basic"},
+    ],
+    func_algorithm: async (colorRow, delay_func, dataRef, setData) => {
+        let key = 75;
+        let start = 0;
+        colorRow(1)
+        await delay_func(() => {});
+        let end = dataRef.current.length - 1;
+        colorRow(2)
+        await delay_func(() => {});
+
+        while (start <= end) {
+            colorRow(3)
+            await delay_func(() => {});
+            await delay_func(() => {});
+            let middle = Math.floor((start + end) / 2);
+            colorRow(4)
+            await delay_func(() => {});
+            await delay_func(() => {});
+
+            colorRow(5)
+            dataRef.current = dataRef.current.map((item,index) =>
+              index === middle ? { ...item, color: "active" } : item
+            );
+            setData(dataRef.current);
+            await delay_func(() => {});
+            await delay_func(() => {});
+
+            if (dataRef.current[middle].value === key) {
+                colorRow(6)
+                dataRef.current = dataRef.current.map((item,index) =>
+                    index !== middle ? { ...item, color: "unnecessary" } : item
+                );
+                setData(dataRef.current);
+                return;
+
+            } else if (dataRef.current[middle].value < key) {
+                start = middle + 1;
+                colorRow(7)
+                await delay_func(() => {});
+                await delay_func(() => {});
+
+                colorRow(8)
+                dataRef.current = dataRef.current.map((item,index) =>
+                    (index < start || index > end) ? { ...item, color: "unnecessary" } : { ...item, color: "basic" }
+                );
+                setData(dataRef.current);
+                await delay_func(() => {});
+                await delay_func(() => {});
+            } else {
+                end = middle - 1;
+                colorRow(7)
+                await delay_func(() => {});
+                await delay_func(() => {});
+
+                colorRow(10)
+                dataRef.current = dataRef.current.map((item,index) =>
+                    (index < start || index > end) ? { ...item, color: "unnecessary" } : { ...item, color: "basic" }
+                );
+                setData(dataRef.current);
+                await delay_func(() => {});
+                await delay_func(() => {});
+            }
+        }
+        return;
+    }
+  }
 ];
 
 export default algorithms;

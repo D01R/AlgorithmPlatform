@@ -8,7 +8,7 @@ const MainPage = () => {
     return (
         <Container>
             {
-                algorithms.map(algorithm => <AlgorithmCard name={algorithm.name} id={algorithm.id} photo={photo}/>)
+                algorithms.map(algorithm => <AlgorithmCard key={algorithm.id} name={algorithm.name} id={algorithm.id} photo={photo}/>)
             }
         </Container>
     )

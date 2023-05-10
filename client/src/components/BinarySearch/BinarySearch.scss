@@ -1,0 +1,31 @@
+.binary_value__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    .value_figure {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .active_value__color{
+        background-color: #43c6ac;
+        color: #191645
+    }
+    
+    .basic_value__color{
+        background-color: #191645;
+        color: #43c6ac;
+    }
+    
+    .unnecessary_value__color{
+        background-color: #a1e2d5;
+        color: #fff;
+    }
+}
