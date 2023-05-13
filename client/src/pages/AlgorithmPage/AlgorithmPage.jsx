@@ -9,6 +9,7 @@ import BarSort from "../../components/BarSort/BarSort";
 import algorithms from "../../utils/algorithms";
 import NotFound from "../NotFoundPage/NotFoundPage";
 import BinarySearch from "../../components/BinarySearch/BinarySearch";
+import GraphPaint from "../../components/GraphPaint/GraphPaint";
 
 const ScriptRow = ({item}) => {
     return (
@@ -66,6 +67,8 @@ const AlgorithmPage = observer(() => {
                 return <BarSort colorType={"category"} colorRange={colorRange} data={data}/>;
             case "binarySearch":
                 return <BinarySearch data={data}/>
+            case "graphAlg":
+                return <GraphPaint data={data} colorRange={colorRange}/>;
             default:
                 return <div>Not Found</div>
         }

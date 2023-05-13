@@ -334,6 +334,136 @@ const algorithms = [
         }
         return;
     }
+  },
+  {
+    id: 5,
+    name: "Обход в ширину",
+    type: "graphAlg",
+    description: "dfdfdg",
+    script: [
+        "function bfs(adj, st, to) {",
+        "let queue = [];",
+        "queue.push(st);",
+        "st.visited = true;",
+        "while(queue.length > 0) {",
+        "  let v = queue.shift();",
+        "  for(let neighbor of adj[v]) {",
+        "     if(!neighbor.visited) {",
+        "        queue.push(neighbor);",
+        "        neighbor.visited = true;",
+        "        if(neighbor === to) return true;",
+        "     }",
+        "  }",
+        "}",
+        "return false",
+        "}",
+    ],
+    colorRange: ["#191645", "#43c6ac", "#a1e2d5"],
+    data: [
+        {
+            text: "A",
+            centerX: 160,
+            centerY: 200,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "B", color: 0}, {ver: "C", color: 0}],
+        },
+        {
+            text: "B",
+            centerX: 240,
+            centerY: 130,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "A", color: 0}, {ver: "D", color: 0}, {ver: "C", color: 0}],
+        },
+        {
+            text: "C",
+            centerX: 210,
+            centerY: 280,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "A", color: 0}, {ver: "B", color: 0}, {ver: "F", color: 0}, {ver: "E", color: 0}],
+        },
+        {
+            text: "D",
+            centerX: 400,
+            centerY: 100,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "B", color: 0}, {ver: "J", color: 0}, {ver: "I", color: 0}],
+        },
+        {
+            text: "E",
+            centerX: 280,
+            centerY: 340,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "F", color: 0}, {ver: "C", color: 0}, {ver: "G", color: 0}],
+        },
+        {
+            text: "F",
+            centerX: 310,
+            centerY: 210,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "E", color: 0}, {ver: "C", color: 0}, {ver: "G", color: 0}, {ver: "H", color: 0}],
+        },
+        {
+            text: "G",
+            centerX: 420,
+            centerY: 310,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "E", color: 0}, {ver: "F", color: 0}],
+        },
+        {
+            text: "H",
+            centerX: 450,
+            centerY: 230,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "F", color: 0}, {ver: "I", color: 0}, {ver: "K", color: 0}],
+        },
+        {
+            text: "I",
+            centerX: 500,
+            centerY: 170,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "D", color: 0}, {ver: "J", color: 0}, {ver: "H", color: 0}, {ver: "K", color: 0}],
+        },
+        {
+            text: "J",
+            centerX: 600,
+            centerY: 100,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "D", color: 0}, {ver: "I", color: 0}, {ver: "K", color: 0}],
+        },
+        {
+            text: "K",
+            centerX: 620,
+            centerY: 200,
+            fill: 0,
+            textColor: 1,
+            toVertices: [{ver: "H", color: 0}, {ver: "I", color: 0}, {ver: "J", color: 0}],
+        },
+    ],
+    func_algorithm: async (colorRow, delay_func, dataRef, setData) => {
+        // const colorVer =  [["A","B"], ["B", "D"], ["A", "C"], ["C", "F"], ["C", "E"]]
+        // colorRow(8)
+        // dataRef.current = dataRef.current.map((item) =>
+        //     colorVer.find(i => i[0] == item.text || i[1] == item.text) ? { ...item, fill: 1, textColor: 0, toVertices: item.toVertices.map((el) => colorVer.find(i => (i[0] == el.ver && i[1] == item.text)||(i[0] == item.text && i[1] == el.ver))? {...el, color: 1}: el)} : item
+        // );
+        // setData(dataRef.current);
+
+        const colorVer =  [["A","B"], ["B", "D"], ["D", "I"]]
+        colorRow(10)
+        dataRef.current = dataRef.current.map((item) =>
+            colorVer.find(i => i[0] == item.text || i[1] == item.text) ? { ...item, fill: 1, textColor: 0, toVertices: item.toVertices.map((el) => colorVer.find(i => (i[0] == el.ver && i[1] == item.text)||(i[0] == item.text && i[1] == el.ver))? {...el, color: 1}: el)} : item
+        );
+        setData(dataRef.current);
+    }
   }
 ];
 
