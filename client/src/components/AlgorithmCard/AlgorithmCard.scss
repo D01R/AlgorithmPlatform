@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+.algorithm-container {
+    border: 3px solid $blue_color;
+    width: 32%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    .algorithm-container__title{
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 500;
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        height: 72px;
+    }
+
+    .algorithm-container__img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .algorithm-container__btn {
+        font-family: 'Montserrat', sans-serif;
+        color: $mint_color;
+        font-weight: 500;
+        background-color: $blue_color;
+        width: 70%;
+        height: 45px;
+        margin: auto;
+        border: none;
+        outline: none;
+        margin-top: 15px;
+    }
+
+    .algorithm-container__btn:hover {
+        border: 2px solid $mint_color;
+        color: $mint_color;
+        background-color: $blue_color;
+    }
+
+    .algorithm-container__btn:active {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+    }
+}

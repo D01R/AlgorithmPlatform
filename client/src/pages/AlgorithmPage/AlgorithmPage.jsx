@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import '../../../node_modules/react-vis/dist/style.css';
@@ -13,9 +13,9 @@ import GraphPaint from "../../components/GraphPaint/GraphPaint";
 
 const ScriptRow = ({item}) => {
     return (
-        <tr>
-            <td>
-                <pre>{item}</pre>
+        <tr className="algorithm-table__row">
+            <td className="algorithm-table__cell">
+                <pre className="algorithm-table__text">{item}</pre>
             </td>
         </tr>
     )
@@ -36,6 +36,13 @@ const AlgorithmPage = observer(() => {
         dataRef.current = data;
     })
     
+    useEffect(() => {
+        let div = document.createElement("div");
+        div.setAttribute('id', 'description-algorithm')
+        div.innerHTML = algorithm.description;
+        document.getElementById("description-algorithm").replaceWith(div);
+    })
+
     let table = document.getElementById("table-code");
     
     const colorRow = (id) => {
@@ -75,25 +82,25 @@ const AlgorithmPage = observer(() => {
     }
 
     return(
-        <Container>
-            <h1>{algorithm.name}</h1>
+        <Container className="algorithm-main">
+            <h1 className="algorithm-main__title">{algorithm.name}</h1>
             <Row>
                 <Col md={8}>
-                    <Card style={{height: 400}}>
+                    <Card className="algorithm-main_visualization">
                         {renderSwitch(algorithm.type)}
                     </Card>
-                    <h2>Описание</h2>
-                    <p>{algorithm.description}</p>
+                    <h2 className="algorithm-main__description-title">Описание</h2>
+                    <p className="algorithm-main__description-content"><div id="description-algorithm"/></p>
                 </Col>
                 <Col md={4}>
-                    <Table style={{height: 300}} id="table-code">
+                    <Table id="table-code" className="algorithm_main__table algorithm-table">
                         <tbody>
                             {algorithm.script.map((item,index) => <ScriptRow key={index} item={item}/>)}
                         </tbody>
                     </Table>
-                    <div className="d-flex justify-content-between">
-                        <Button onClick={() => navigate(COMPILER_ROUTE + '/' +id)}>Компилятор</Button>
-                        <Button onClick={() => startVisualization()}>Демонстрация</Button>
+                    <div className="algorithm-main__control" >
+                        <Button onClick={() => navigate(COMPILER_ROUTE + '/' +id)} className="algorithm-main__btn">Компилятор</Button>
+                        <Button onClick={() => startVisualization()} className="algorithm-main__btn">Демонстрация</Button>
                     </div>
                 </Col>
             </Row>

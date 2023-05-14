@@ -1,0 +1,78 @@
+@import '../../App.scss';
+
+.compiler {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: calc(100vh - 220px);
+
+    .compiler__title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: $blue_color;
+        font-size: 40px;
+    }
+
+    .compiler__script {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+        border: 2px solid $blue_color;
+    }
+
+    .compiler__result {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+        border: 2px solid $blue_color;
+    }
+
+    .compiler__result:focus {
+        outline: none;
+        border: 2px solid $blue_color;
+    }
+
+    .compiler__control {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 120px;
+    }
+
+    .compiler__btn {
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: $mint_color;
+        background-color: $blue_color;
+        border: none;
+    }
+
+    .compiler__btn:hover {
+        border: 2px solid $mint_color;
+        color: $mint_color;
+        background-color: $blue_color;
+    }
+
+    .compiler__btn:hover {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+    }
+
+    .compiler__description-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: $blue_color;
+    }
+
+    .compiler__description-content {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+
+        br {
+            margin-bottom: 10px;
+        }
+    }
+}

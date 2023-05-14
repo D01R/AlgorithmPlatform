@@ -1,0 +1,67 @@
+@import '../../App.scss';
+
+.navbar{
+    background-color: $blue_color;
+    color: $mint_color;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header__title{
+        vertical-align: middle;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        display: inline;
+        font-family: 'Montserrat', sans-serif;
+        color: $mint_color;
+        font-weight: 900;
+    }
+
+    .header__logo-link{
+        height: 40px;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+    }
+
+    .header__logo{
+        width: 40px;
+        height: 40px;
+    }
+    
+    .header__link{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: $mint_color;
+        width: 100px;
+        height: 40px;
+        border: 1px solid $mint_color;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-align: center;
+        padding-top: 6px;
+    }
+
+    .header__link:active {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+    }
+
+    .header__link_auth{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: $blue_color;
+        background-color: $mint_color;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        text-align: center;
+        padding-top: 6px;
+    }
+
+    .header__link_auth:active {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+    }
+}

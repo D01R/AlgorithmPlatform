@@ -8,6 +8,7 @@ import { login, registration } from '../../services/userAPI';
 import { roleEnum } from '../../utils/roleEnum';
 import FormInputAuth from '../../components/FormInputAuth/FormInputAuth';
 import FormDropdownAuth from '../../components/FormDropdownAuth/FormDropdownauth';
+import './AuthPage.scss';
 
 const AuthPage = observer(() => {
     const {user} = useContext(Context);
@@ -48,10 +49,10 @@ const AuthPage = observer(() => {
     return (
         <Container
             className='d-flex justify-content-center align-items-center'
-            style={{height: window.innerHeight}}
+            style={{height: window.innerHeight-160}}
         >
-            <Card style={{width: 600}} className='5-p'>
-                <h2>{isLogin? "Авторизация": "Регистрация"}</h2>
+            <Card className='form-auth'>
+                <h2 className='form-auth__title'>{isLogin? "Авторизация": "Регистрация"}</h2>
                 <Form>
                     <FormInputAuth id='formLogin' text={isLogin? "Введите login или email": "Введите login"} type='text' name="login" placeholder="Login..." value={stateForm.login} callback={onChange}/>
                     <FormInputAuth id='formPassword' text='Введите пароль' type='password' name="password" placeholder="Password..." value={stateForm.password} callback={onChange}/>
@@ -66,20 +67,20 @@ const AuthPage = observer(() => {
                         :
                         <></>
                     }
-                    <Row className='d-flex justify-content-between mt-3 p-3'>
+                    <div className='form-auth__bottom'>
                         {isLogin ? 
-                            <div style={{width:'fit-content', padding: 0}}>
-                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрироваться</NavLink>
+                            <div className='form-auth__ref'>
+                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE} className='form-auth__ref-link'>Зарегистрироваться</NavLink>
                             </div>
                             :
-                            <div style={{width:'fit-content', padding: 0}}>
-                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите</NavLink>
+                            <div className='form-auth__ref'>
+                                Есть аккаунт? <NavLink to={LOGIN_ROUTE} className='form-auth__ref-link'>Войдите</NavLink>
                             </div>    
                         }
-                        <Button style={{width:'fit-content'}} variant={'outline-success'} onClick={sendForm}>
+                        <Button className='form-auth__btn' onClick={sendForm}>
                             {isLogin? 'Войти' : 'Регистрация'}
                         </Button>
-                    </Row>
+                    </div>
                 </Form>
             </Card>
         </Container>

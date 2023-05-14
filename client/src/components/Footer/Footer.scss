@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+.footer {
+    background-color: $blue_color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .footer_container {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer__website {
+        font-family: 'Montserrat', sans-serif;
+        color: $mint_color;
+        font-weight: 900;
+    }
+
+    .footer__contact_container {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .footer__contact_item {
+        display: flex;
+        width: 200px;
+        justify-content: start;
+        height: 30px;
+    }
+
+    .footer__contact_icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    .footer__contact_title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: #fff;
+        height: 30px;
+        margin-top: 2px;
+    }
+}

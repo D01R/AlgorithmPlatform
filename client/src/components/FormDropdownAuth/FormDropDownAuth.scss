@@ -1,0 +1,42 @@
+@import '../../App.scss';
+
+.form-dropdown {
+    margin-bottom: 10px;
+    
+    .form-dropdown__title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+    }
+
+    .form-dropdown__control {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+        background-color: $light_mint_color;
+        border: none;
+    }
+
+    .form-dropdown__control:hover {
+        background-color: $light_mint_color;
+        color: $blue_color;
+        border: none;
+    }
+
+    .form-dropdown__control:active {
+        background-color: $light_mint_color;
+        color: $blue_color;
+        border: none;
+    }
+
+    .form-dropdown__menu {
+        background-color: $light_mint_color;
+    }
+
+    .form-dropdown__item {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+        background-color: $light_mint_color;
+    }
+}

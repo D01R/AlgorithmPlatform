@@ -10,10 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { observer } from 'mobx-react-lite';
+import './App.scss';
 
 const App = observer(() => {
   const { user } = useContext(Context);
-  const [loading, setLoadin] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     check()
@@ -21,7 +22,8 @@ const App = observer(() => {
         user.setIsAuth(true);
         user.setUser(data);
       })
-      .finally(() => console.log('Auth'))
+      .catch((error) => console.log(error))
+      .finally(() => console.log('Auth'));
   },[])
 
   return (

@@ -4,6 +4,8 @@ import FormDropdownAuth from "../../components/FormDropdownAuth/FormDropdownauth
 import { languagesCompiler } from "../../utils/languagesCompiler";
 import { useParams } from "react-router-dom";
 import { executeScript } from "../../services/compilerAPI";
+import algorithms from "../../utils/algorithms";
+import "./CompilerPage.scss";
 
 const CompilerPage = () => {
     const {id} = useParams();
@@ -32,8 +34,8 @@ const CompilerPage = () => {
     };
 
     return(
-        <Container>
-            <h1>Компилятор</h1>
+        <Container className="compiler">
+            <h1 className="compiler__title">Компилятор</h1>
             <Row>
                 <Col md={6}>
                     <Form.Control
@@ -43,6 +45,7 @@ const CompilerPage = () => {
                         value={stateForm.script}
                         onChange={e => onChangeScript(e)}
                         style={{height: '400px', resize: 'none'}}
+                        className="compiler__script"
                     />
                 </Col>
                 <Col md={6}>
@@ -51,22 +54,25 @@ const CompilerPage = () => {
                         as="textarea"
                         placeholder="Результат..."
                         style={{height: '400px', resize: 'none'}}
-                        readOnly={false}
+                        readOnly={true}
                         tabIndex={-1}
+                        className="compiler__result"
                     />
                 </Col>
             </Row>
-            <div className="d-flex justify-content-end mt-3">
+            <div className="compiler__control">
                 <FormDropdownAuth id='languageScript' toggleText='Язык...' text='Язык' value={stateForm.language} enums={languagesCompiler} paramChange='language' callback={onChangeDropDown}/>
-                <Button className="ms-3" onClick={() => execute()}>
-                    Запустить
-                </Button>
-                <Button className="ms-3">
-                    Сохранить
-                </Button>
+                <div>
+                    <Button className="ms-3 compiler__btn" onClick={() => execute()}>
+                        Запустить
+                    </Button>
+                    <Button className="ms-3 compiler__btn">
+                        Сохранить
+                    </Button>
+                </div>
             </div>
-            <h2>Описание алгоритма</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt perferendis cupiditate soluta ducimus quae. Deleniti magnam fuga, ea voluptate nesciunt, blanditiis ipsum voluptates, qui fugiat reiciendis nostrum harum magni molestias. Inventore, recusandae?</p>
+            <h2 className="compiler__description-title">Описание алгоритма</h2>
+            <p  className="compiler__description-content">{algorithms[id].description}</p>
         </Container>
     )
 }

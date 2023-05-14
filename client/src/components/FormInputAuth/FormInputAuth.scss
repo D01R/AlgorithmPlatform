@@ -1,0 +1,18 @@
+@import '../../App.scss';
+
+.form-input{
+    margin-bottom: 10px;
+
+    .form-input__label {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+    }
+
+    .form-input__control {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: $blue_color;
+        background-color: $light_mint_color;
+    }
+}

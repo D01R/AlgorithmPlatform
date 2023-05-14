@@ -1,4 +1,92 @@
+@import "../../App.scss";
+
 .code-active{
-    background-color: #191645;
-    color: #43c6ac;
+    background-color: $blue_color;
+    color: $mint_color;
+}
+
+.algorithm-main {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    min-height: calc(100vh - 205px);
+
+    .algorithm-main__title {
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 700;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .algorithm-main_visualization {
+        height: 400px;
+        border: 2px solid $blue_color;
+    }
+
+    .algorithm-main__description-title {
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 700;
+        font-size: 30px;
+        margin-top: 20px;
+
+    }
+
+    .algorithm-main__description-content {
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 400;
+        font-size: 20px;
+
+        br {
+            margin-bottom: 10px;
+        }
+    }
+
+    .algorithm_main__table {
+        min-height: 300px;
+    }
+
+    .algorithm-main__control {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .algorithm-main__btn {
+        font-family: 'Montserrat', sans-serif;
+        color: $mint_color;
+        font-weight: 500;
+        background-color: $blue_color;
+        border: none;
+        outline: none;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .algorithm-main__btn:hover {
+        border: 2px solid $mint_color;
+        color: $mint_color;
+        background-color: $blue_color;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .algorithm-main__btn:active {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+        width: fit-content;
+        height: fit-content;
+    }
+}
+
+.algorithm-table {
+    border-collapse: collapse;
+
+    .algorithm-table__text {
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
 }

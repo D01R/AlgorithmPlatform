@@ -1,0 +1,56 @@
+@import "../../App.scss";
+
+.form-auth{
+    width: 500px;
+    padding: 10px !important;
+    border: 2px solid $blue_color !important;
+    border-radius: 10px !important;
+
+    .form-auth__title {
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 700;
+        padding-bottom: 15px;
+    }
+    
+    .form-auth__bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .form-auth__ref {
+        width:fit-content; 
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: $blue_color;
+        font-weight: 500;
+        padding-top: 12px;
+    }
+
+    .form-auth__ref-link {
+        color: $mint_color;
+    }
+
+    .form-auth__btn {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: $mint_color;
+        background-color: $blue_color;
+        width: fit-content;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+    }
+    
+    .form-auth__btn:hover {
+        border: 2px solid $mint_color;
+        color: $mint_color;
+        background-color: $blue_color;
+    }
+
+    .form-auth__btn:active {
+        background-color: $active_blue_color;
+        color: $light_mint_color;
+    }
+}
