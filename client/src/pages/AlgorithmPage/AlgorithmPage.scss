@@ -1,8 +1,8 @@
 @import "../../App.scss";
 
 .code-active{
-    background-color: $blue_color;
-    color: $mint_color;
+    background-color: $blue_color !important;
+    color: $mint_color !important;
 }
 
 .algorithm-main {
@@ -83,9 +83,12 @@
 .algorithm-table {
     border-collapse: collapse;
 
+    .algorithm-table__row {
+        color: $blue_color;
+    }
+    
     .algorithm-table__text {
         font-family: 'Montserrat', sans-serif;
-        color: $blue_color;
         font-weight: 400;
         margin-bottom: 0;
     }

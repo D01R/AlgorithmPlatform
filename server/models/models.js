@@ -47,10 +47,10 @@ University.hasMany(User);
 User.belongsTo(University);
 
 University.hasMany(Group);
-Group.belongsTo(University);
+Group.belongsTo(University, {as: 'university'});
 
 Group.hasMany(User);
-User.belongsTo(Group);
+User.belongsTo(Group, {as: 'group'});
 
 User.hasMany(ShareCode, {
     foreignKey: 'studentId',
@@ -65,10 +65,10 @@ ShareCode.belongsTo(User);
 User.hasMany(Group, {
     foreignKey: 'teacherId',
 })
-Group.belongsTo(User);
+Group.belongsTo(User, {as: 'teacher'});
 
 User.hasMany(Code);
-Code.belongsTo(User);
+Code.belongsTo(User, {as: 'user'});
 
 Code.hasMany(ShareCode);
 ShareCode.belongsTo(Code);
